@@ -2,14 +2,16 @@
 
 import {motion} from "framer-motion"
 
-import React, {useState} from "react"
+import React, {useState, useRef} from "react"
 
-import { BsArrowUpRight, BsGithub } from "react-icons/bs"
+import { BsArrowUpRight, BsGithub, BsArrowLeft, BsArrowRight } from "react-icons/bs"
 
 import Link from "next/link"
 import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 
 
 const projects = [
@@ -90,10 +92,23 @@ const projects = [
 const Works = () => {
 
   const [project, setProject] = useState(projects[0])
+  const swiperRef = useRef(null)
 
   const handelSlideChange = (swiper) => {
     const currIndex = swiper.activeIndex
     setProject(projects[currIndex])
+  }
+
+  const handlePrevSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev()
+    }
+  }
+
+  const handleNextSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext()
+    }
   }
 
   return (
@@ -145,19 +160,21 @@ const Works = () => {
         </div>
       </div>
 
-      <div className="w-full xl:w-[50%]">
+      <div className="w-full xl:w-[50%] relative">
         
         <Swiper 
+        ref={swiperRef}
+        modules={[Navigation]}
         spaceBetween={30}
         slidesPerView={1}
         className="xl:h-[520px] mb-12"
-        onSlideChange = {handelSlideChange}
+        onSlideChange={handelSlideChange}
         >
           {projects.map((item, index) =>{
             return (<SwiperSlide key={index} className="w-full">
               <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
               <div></div>
-                <div className=" relativew-full h-full">
+                <div className="relative w-full h-full">
 
                   <Image src={item.image} fill  alt="img" className="object-contain"/>
 
@@ -165,10 +182,24 @@ const Works = () => {
               </div>
             </SwiperSlide>)
           })}
-        
-      
-          
         </Swiper>
+
+        <div className="absolute top-0 left-0 right-0 flex gap-4 justify-between px-4 z-10">
+          <button 
+            onClick={handlePrevSlide}
+            className="h-12 w-12 bg-accent hover:bg-white text-black rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+            aria-label="Previous slide"
+          >
+            <BsArrowLeft className="text-xl" />
+          </button>
+          <button 
+            onClick={handleNextSlide}
+            className="h-12 w-12 bg-accent hover:bg-white text-black rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+            aria-label="Next slide"
+          >
+            <BsArrowRight className="text-xl" />
+          </button>
+        </div>
 
       </div>
     </div>

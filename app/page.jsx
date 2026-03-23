@@ -11,10 +11,10 @@ const Home = () => {
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Software Developer</span>
-            <h1 className="h1 mb-6">Hello I'm <br /> <span className="text-accent">Surya Dwivedi</span>
+            <span className="text-xl">Software Developer </span>
+            <h1 className="h1 mb-6">Hello I'm <br /> <span className="text-accent">Suryakant Dwivedi</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/70">I excel in crafting elegant digital experiences and I am proficient in various programming language and technologies.</p>
+            <p className="max-w-[500px] mb-9 text-white/70">I design and deploy production-grade applications, leveraging the MERN stack alongside AWS, Kubernetes, Docker, terraform, Ansible and automated CI/CD pipelines to deliverend end to end.</p>
 
             <div className="flex flex-col xl:flex-row items-center gap-8">
               

@@ -7,25 +7,25 @@ import {motion} from "framer-motion"
 const data = [
   {
     num:"01",
-    title:"Front-End",
-    description:"I love frontend development services using React, Next.js, and Tailwind CSS. I specialize in building responsive, interactive, and high-performance web applications with clean UI/UX.",
+    title:"Backend Engineering",
+    description:"I design and build secure, scalable backend systems using Node.js, Express, and MongoDB. I focus on clean architecture, authentication and high-performance  handling for real-world applications.",
     href:""
   },
   {
     num:"02",
-    title:"Back-End",
-    description:"I specialize in building secure, scalable backend solutions using Node.js, Express, and MongoDB, ensuring efficient APIs and seamless data management.",
+    title:"DevOps & CI/CD",
+    description:"I implement production-grade DevOps workflows using Docker, Kubernetes, Jenkins, and GitHub Actions. From containerization to automated pipelines, I ensure reliable builds, testing, and seamless deployments.",
     href:""
   },
   {
     num:"03",
-    title:"UI/UX Design",
-    description:"I create intuitive, visually appealing UI/UX designs focused on user experience, accessibility, and responsiveness for seamless digital interactions.",
+    title:"Cloud Engineering (AWS)",
+    description:"I architect and manage scalable cloud infrastructure in AWS using tools like Terraform and Ansible. I focus on high availability, cost optimization, and secure cloud deployments.",
     href:""
   },
   {
     num:"04",
-    title:"FullStack App",
+    title:"Full-Stack Development",
     description:"I build scalable, high-performance full-stack applications using React, Next.js, Node.js, and MongoDB, ensuring seamless frontend-backend integration.",
     href:""
   },

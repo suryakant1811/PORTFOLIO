@@ -6,10 +6,10 @@ import { Textarea } from "@/components/ui/textarea"
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"
 
 import {motion} from "framer-motion"
+import { useState } from "react"
 
 const info = [
   {
@@ -30,6 +30,75 @@ const info = [
 ]
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: ""
+  })
+  
+  const [loading, setLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState("")
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleServiceChange = (value) => {
+    setFormData(prev => ({
+      ...prev,
+      service: value
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    if (!formData.firstName || !formData.email || !formData.service || !formData.message) {
+      setSubmitStatus("Please fill in all required fields")
+      return
+    }
+
+    setLoading(true)
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus("Message sent successfully! I'll get back to you soon.")
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: ""
+        })
+        setTimeout(() => setSubmitStatus(""), 5000)
+      } else {
+        setSubmitStatus("Error sending message. Please try again.")
+      }
+    } catch (error) {
+      setSubmitStatus("Error sending message. Please try again.")
+      console.error("Error:", error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <motion.section initial = {{opacity:0}}
     animate={{
@@ -42,17 +111,43 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent">Let's Work together</h3>
               <p className="text-white/60">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut quae quibusdam temporibus. Quod, officiis reiciendis.</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="text" placeholder="Firstname"/>
-                <Input type="text" placeholder="Lastname"/>
-                <Input type="email" placeholder="Email address"/>
-                <Input type="tel" placeholder="Phone number"/>
+                <Input 
+                  type="text" 
+                  name="firstName"
+                  placeholder="Firstname"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  required
+                />
+                <Input 
+                  type="text" 
+                  name="lastName"
+                  placeholder="Lastname"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                />
+                <Input 
+                  type="email" 
+                  name="email"
+                  placeholder="Email address"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+                <Input 
+                  type="tel" 
+                  name="phone"
+                  placeholder="Phone number"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                />
               </div>
 
-                <Select >
+                <Select value={formData.service} onValueChange={handleServiceChange}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select a service"/>
                   </SelectTrigger>
@@ -60,9 +155,11 @@ const Contact = () => {
                       <SelectContent>
                       <SelectGroup>
                     <SelectLabel className="bg-black text-white">Select a service</SelectLabel>
-                    <SelectItem className="bg-black text-white" value="est">Web Development</SelectItem>
-                    <SelectItem className="bg-black text-white" value="cst">Front-end</SelectItem>
-                    <SelectItem className="bg-black text-white" value="mst">Back-end</SelectItem>
+                    <SelectItem className="bg-black text-white" value="Web Development">Web Development</SelectItem>
+                    <SelectItem className="bg-black text-white" value="Front-end">Front-end</SelectItem>
+                    <SelectItem className="bg-black text-white" value="Back-end">Back-end</SelectItem>
+                    <SelectItem className="bg-black text-white" value="DevOps & CI/CD">DevOps & CI/CD</SelectItem>
+                    <SelectItem className="bg-black text-white" value="AWS (Cloud)">AWS (Cloud)</SelectItem>
                   </SelectGroup>
                       </SelectContent>
 
@@ -70,10 +167,27 @@ const Contact = () => {
 
                 <Textarea
                 placeholder="Type your message here..."
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 className="h-[200px] bg-primary text-accent"
+                required
                 />
 
-                <Button size="md" className="max-w-40 px-10 py-2 bg-accent rounded-lg text-black">Send message</Button>
+                {submitStatus && (
+                  <p className={`text-sm ${submitStatus.includes("successfully") ? "text-green-500" : "text-red-500"}`}>
+                    {submitStatus}
+                  </p>
+                )}
+
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  size="md" 
+                  className="max-w-40 px-10 py-2 bg-accent rounded-lg text-black hover:bg-white transition-all"
+                >
+                  {loading ? "Sending..." : "Send message"}
+                </Button>
 
             </form>
           </div>
