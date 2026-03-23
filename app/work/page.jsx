@@ -20,7 +20,7 @@ const projects = [
     description:"EcoSheri is an eco-friendly web project with smooth animations using Shery.js, Locomotive Scroll, and GSAP for seamless interactivity and transitions.",
     stack:[{name:"Html 5"}, {name:"Css"},{name:"Javascripts"}],
     image:"/s1.png",
-    repo:"https://github.com/suryadwd/EcoSheri",
+    repo:"https://github.com/suryakant1811/EcoSheri",
     github:"https://eco-sheri.vercel.app"
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     description:"A React project combining GSAP animations and Canvas tools to create dynamic, visually engaging web experiences.",
     stack:[{name:"Html 5"}, {name:"Css"},{name:"React"},{name:"Javascripts"},{name:"GSAP"}],
     image:"/s2.png",
-    repo:"https://github.com/suryadwd/ReactGSAP-AnimationStarter",
+    repo:"https://github.com/suryakant1811/ReactGSAP-AnimationStarter",
     github:"https://react-gsap-animation-starter.vercel.app"
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     description:"Retro-Web is a creative website using HTML, CSS, and JavaScript with Locomotive Scroll for smooth scrolling, GSAP for animations, and custom fonts.",
     stack:[{name:"Html 5"}, {name:"Css"},{name:"React"},{name:"Javascripts"},{name:"GSAP"}],
     image:"/s3.png",
-    repo:"https://github.com/suryadwd/Retro-web",
+    repo:"https://github.com/suryakant1811/Retro-web",
     github:"https://retroweb-chi.vercel.app/"
   },
   {
@@ -50,7 +50,7 @@ const projects = [
     description:"A modern web project utilizing HTML, CSS, and JavaScript to create smooth scroll effects and animations. ",
     stack:[{name:"Html 5"}, {name:"Css"},{name:"React"},{name:"Javascripts"},{name:"GSAP"}],
     image:"/s4.png",
-    repo:"https://github.com/suryadwd/Scroll-fx-Studio",
+    repo:"https://github.com/suryakant1811/Scroll-fx-Studio",
     github:"https://scroll-fx-studio.vercel.app/"
   },
   {
@@ -60,7 +60,7 @@ const projects = [
     description:"An interactive web UI demonstrating the use of Shery.js for image effects and GSAP for smooth animations. The project features a dynamic background with image transitions",
     stack:[{name:"Html 5"}, {name:"Css"},{name:"React"},{name:"Javascripts"},{name:"GSAP"}],
     image:"/s5.png",
-    repo:"https://github.com/suryadwd/Shery-js",
+    repo:"https://github.com/suryakant1811/Shery-js",
     github:"https://shery-js-rho.vercel.app"
   },
   {
@@ -70,7 +70,7 @@ const projects = [
     description:"SheryFront is a modern web development project leveraging the powerful features of SheryJS. It focuses on delivering dynamic, interactive, and visually stunning user interfaces",
     stack:[{name:"Html 5"}, {name:"Css"},{name:"React"},{name:"Javascripts"},{name:"GSAP"}],
     image:"/s6.png",
-    repo:"https://github.com/suryadwd/SheryFront",
+    repo:"https://github.com/suryakant1811/SheryFront",
     github:"https://shery-front.vercel.app"
   },
   {
@@ -80,7 +80,7 @@ const projects = [
     description:"SheryFront is a modern web development project leveraging the powerful features of SheryJS. It focuses on delivering dynamic, interactive, and visually stunning user interfaces",
     stack:[{name:"Html 5"}, {name:"Css"},{name:"React"},{name:"Javascripts"},{name:"GSAP"}],
     image:"/s7.png",
-    repo:"https://github.com/suryadwd/Shery-UI",
+    repo:"https://github.com/suryakant1811/Shery-UI",
     github:"https://shery-ui.vercel.app"
   },
 

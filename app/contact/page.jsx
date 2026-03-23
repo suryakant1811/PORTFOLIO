@@ -34,7 +34,7 @@ const Contact = () => {
     <motion.section initial = {{opacity:0}}
     animate={{
       opacity:1,
-      transition:{delay:2.4, duration: 0.4, ease:"easeInOut"},
+      transition:{delay:0.5, duration: 0.2, ease:"easeInOut"},
     }}
       className="py-6"
     >
@@ -46,10 +46,10 @@ const Contact = () => {
               <h3 className="text-4xl text-accent">Let's Work together</h3>
               <p className="text-white/60">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut quae quibusdam temporibus. Quod, officiis reiciendis.</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Firstname"/>
-                <Input type="lastname" placeholder="Lastname"/>
+                <Input type="text" placeholder="Firstname"/>
+                <Input type="text" placeholder="Lastname"/>
                 <Input type="email" placeholder="Email address"/>
-                <Input type="phone" placeholder="Phone number"/>
+                <Input type="tel" placeholder="Phone number"/>
               </div>
 
                 <Select >
