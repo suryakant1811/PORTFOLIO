@@ -19,14 +19,17 @@ const Photo = () => {
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" }
           }}
-          className="w-[298px] p-4 h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute overflow-hidden rounded-full border border-white/30 shadow-lg">
-          <Image src="/main1.png"
-            priority
-            quality={50}
-            fill
-            alt=""
-            className="object-cover"
-          />
+          className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute overflow-hidden rounded-full border border-white/30 shadow-lg">
+          <div className="relative w-full h-full">
+            <Image src="/main1.png"
+              priority
+              quality={50}
+              fill
+              sizes="(max-width: 1280px) 298px, 498px"
+              alt="Profile photo"
+              className="object-cover"
+            />
+          </div>
         </motion.div>
 
         <motion.svg className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px] "
