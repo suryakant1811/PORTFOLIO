@@ -19,13 +19,13 @@ const Photo = () => {
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" }
           }}
-          className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute">
-          <Image src="/MAIN.png"
+          className="w-[298px] p-4 h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute overflow-hidden rounded-full border border-white/30 shadow-lg">
+          <Image src="/main1.png"
             priority
-            quality={100}
+            quality={50}
             fill
             alt=""
-            className="object-contain"
+            className="object-cover"
           />
         </motion.div>
 
